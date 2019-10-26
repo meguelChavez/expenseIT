@@ -23,4 +23,4 @@ mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true }).catch
 
 app.listen(PORT, () => {
     console.log(` server listening on port ${PORT}`);
-}).catch(error => console.log(error));;
+})
