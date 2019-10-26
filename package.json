@@ -1,0 +1,35 @@
+{
+  "name": "expenseIT",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start:dev": " concurrently \"npm run server\" \"npm run client\"",
+    "start": "node server.js",
+    "dev": "concurrently \"nodemon --ignore 'client/*'\" \"nodemon server.js\" \"npm run client\"",
+    "client": "cd client && npm run start",
+    "install": "cd client && npm install",
+    "build": "cd client && npm run build",
+    "heroku-postbuild": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mc4tech/expenseIT.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mc4tech/expenseIT/issues"
+  },
+  "homepage": "https://github.com/mc4tech/expenseIT#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.7.7",
+    "passport": "^0.4.0"
+  },
+  "devDependencies": {
+    "concurrently": "^5.0.0",
+    "nodemon": "^1.19.4"
+  }
+}
