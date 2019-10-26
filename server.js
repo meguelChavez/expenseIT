@@ -3,6 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
 const authRoutes = require("./routes/auth-routes")
+const passportConfig = require("./config/passport-config")
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -21,7 +22,9 @@ app.get('/', (request, response) => {
 });
 const uri = process.env.MONGODB_URI || "mongodb://localhost/expenseIT"
 
-mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true }).catch(error => handleError(error));
+mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true }, () => {
+    console.log("connected to mongoDb")
+}).catch(error => handleError(error));
 // require('./routes/api-routes')(app);
 
 app.listen(PORT, () => {

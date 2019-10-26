@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
+
 const SignIn = (props) => {
     return (
         <Form >
@@ -14,8 +15,8 @@ const SignIn = (props) => {
                 <Input type="password" name="password" id="examplePassword" placeholder="Password" />
             </FormGroup>
             {' '}
-            <div class="d-flex justify-content-end">
-                <Button>Submit</Button>
+            <div className="d-flex justify-content-end">
+                <Button onClick={props.googleAuth}>Submit</Button>
             </div>
         </Form>
     );

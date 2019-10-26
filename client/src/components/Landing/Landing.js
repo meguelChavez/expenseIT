@@ -38,7 +38,7 @@ const Landing = (props) => {
                     <Container>
                         <Row>
                             <Col sm="12" md="6">
-                                <SignIn />
+                                <SignIn googleAuth={props.googleAuth} />
                             </Col>
                         </Row>
                     </Container>

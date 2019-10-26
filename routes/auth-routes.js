@@ -1,4 +1,6 @@
 const router = require('express').Router()
+const passport = require("passport")
+const ClientURL = "http://localhost:3000"
 
 router.post("/login", (req, res) => {
 
@@ -8,8 +10,33 @@ router.get("/logout", (req, res) => {
     res.send("logout")
 })
 
-router.get("/google", (req, res) => {
-    res.send("logging in with google")
+router.get("/google", passport.authenticate('google', {
+    scope: ['profile'],
+    prompt: 'select_account'
+}))
+
+router.get('/google/redirect', passport.authenticate('google'), (req, res) => {
+    console.log(res)
+    res.send("G auth")
 })
+
+router.get('/login/success', (req, res) => {
+    console.log(req)
+    if (req.user) {
+        res.json({
+            cookies: req.cookies,
+            message: "user has succesfully authenticated",
+            success: true,
+            user: req.user
+        });
+    }
+});
+
+router.get('/login/failed', (req, res) => {
+    res.status(401).json({
+        success: false,
+        message: "user failed to authenticate."
+    });
+});
 
 module.exports = router
