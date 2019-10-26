@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-// import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+import Landing from './components/Landing/Landing';
 
 
 class App extends Component {
@@ -10,7 +11,10 @@ class App extends Component {
     }
     render() {
         return (
-            <div>initial</div>
+            <div>initial
+
+            <Landing />
+            </div>
             //   <Router>
             //     <div className="App">
             //       <Switch>
