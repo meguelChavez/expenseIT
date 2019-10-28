@@ -68,11 +68,15 @@ class App extends Component {
     window.open("http://localhost:3001/auth/google", "_self");
   };
 
+  logOut = () => {
+    window.open("http://localhost:3001/auth/logout", "_self");
+  };
+
   render() {
     const { isAuth, user } = this.state;
     return (
       <Router>
-        <NavBar isAuth={isAuth} />
+        <NavBar isAuth={isAuth} logOut={this.logOut} />
         <Switch>
           {isAuth ? (
             <Route

@@ -181,7 +181,7 @@ class Expenses extends Component {
       updating
     } = this.state;
     return (
-      <Container>
+      <Container className="pt-5">
         {/* <ExpenseForm
           businessName={businessName}
           category={category}
