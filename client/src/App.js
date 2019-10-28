@@ -59,13 +59,13 @@ class App extends Component {
 
   googleAuth = async () => {
     console.log("g auth");
-    try {
-      const res = await axios.get("/auth/google");
-      console.log(res);
-    } catch (err) {
-      console.log(err);
-    }
-    // window.open("http://localhost:3001/auth/google", "_self");
+    // try {
+    //     const res = await axios.get('/auth/google')
+    //     console.log(res)
+    // } catch (err) {
+    //     console.log(err)
+    // }
+    window.open("http://localhost:3001/auth/google", "_self");
   };
 
   logOut = () => {

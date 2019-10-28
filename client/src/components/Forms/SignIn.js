@@ -1,5 +1,6 @@
 import React from "react";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
+import { Link } from "react-router-dom";
 
 const SignIn = props => {
   return (
@@ -23,7 +24,9 @@ const SignIn = props => {
         />
       </FormGroup>{" "}
       <div className="d-flex justify-content-end">
-        <Button onClick={props.googleAuth}>Submit</Button>
+        <Link to="/auth/google">
+          <Button onClick={props.googleAuth}>Submit</Button>\
+        </Link>
       </div>
     </Form>
   );
