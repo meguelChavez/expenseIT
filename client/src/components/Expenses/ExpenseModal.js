@@ -13,14 +13,16 @@ const ExpenseModal = props => {
         <ModalHeader toggle={props.toggleModal}> Expense Form</ModalHeader>
         {props.children}
         <ModalFooter>
-          <Button
-            onClick={() => {
-              props.deleteExpense();
-              props.toggleModal();
-            }}
-          >
-            <FontAwesomeIcon icon={faTrash} />
-          </Button>
+          {props.edit ? (
+            <Button
+              onClick={() => {
+                props.deleteExpense();
+                props.toggleModal();
+              }}
+            >
+              <FontAwesomeIcon icon={faTrash} />
+            </Button>
+          ) : null}
           <Button
             color="primary"
             name="save"
