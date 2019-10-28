@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
-import { Container, TabContent, TabPane, Nav, NavItem, NavLink, Card, Button, CardTitle, CardText, Row, Col } from 'reactstrap';
+import { Container, TabContent, TabPane, Nav, NavItem, NavLink, Card, Button, CardTitle, CardBody, CardText, Row, Col } from 'reactstrap';
 import classnames from 'classnames';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fas } from '@fortawesome/free-solid-svg-icons'
+import { fab, faGooglePlus } from '@fortawesome/free-brands-svg-icons'
 import SignIn from '../Forms/SignIn';
 
 const Landing = (props) => {
@@ -13,7 +17,22 @@ const Landing = (props) => {
 
     return (
         <Container>
-            <Nav tabs>
+            <Row>
+                <Col md={{ size: "6", offset: "3" }}>
+                    <Card style={{ fontWeight: "500", fontSize: "1.5rem" }}>
+                        <CardBody>
+                            <CardTitle>Welcome to ExpenseIT</CardTitle>
+                            {/* <CardSubtitle>Card subtitle</CardSubtitle> */}
+                            <CardText>Manage your expenses with ExpenseIT.</CardText>
+                            <Button onClick={props.googleAuth} className="d-flex justify-contents-between" style={{ background: "#DB4437", color: "#fff", width: "15rem" }}>
+                                <span>Log In with Google</span>
+                                <FontAwesomeIcon icon={faGooglePlus} style={{ fontSize: "3rem" }} />
+                            </Button>
+                        </CardBody>
+                    </Card>
+                </Col>
+            </Row>
+            {/* <Nav tabs>
                 <NavItem>
                     <NavLink
                         className={classnames({ active: activeTab === '1' })}
@@ -61,8 +80,8 @@ const Landing = (props) => {
                         </Col>
                     </Row>
                 </TabPane>
-            </TabContent>
-        </Container>
+            </TabContent> */}
+        </Container >
     );
 }
 

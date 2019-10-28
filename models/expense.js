@@ -6,17 +6,19 @@ const expenseSchema = new Schema({
         type: String,
         required: true
     },
+    category: {
+        type: String,
+        required: true
+    },
     amouont: {
         type: Number,
         required: true
     },
     dueDate: {
         type: Date,
-        required: true
     },
     paidDate: {
         type: Date,
-        required: true
     },
     date: {
         type: Date,

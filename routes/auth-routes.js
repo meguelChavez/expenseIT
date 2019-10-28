@@ -2,9 +2,9 @@ const router = require('express').Router()
 const passport = require("passport")
 const ClientURL = "http://localhost:3000"
 
-router.post("/login", (req, res) => {
+// router.post("/login", (req, res) => {
 
-})
+// })
 
 router.get("/logout", (req, res) => {
     res.send("logout")
@@ -15,13 +15,14 @@ router.get("/google", passport.authenticate('google', {
     prompt: 'select_account'
 }))
 
-router.get('/google/redirect', passport.authenticate('google'), (req, res) => {
-    console.log(res)
-    res.send("G auth")
-})
+router.get('/google/redirect', passport.authenticate('google', {
+    successRedirect: ClientURL,
+    failureRedirect: "/auth/login/failed"
+}))
 
 router.get('/login/success', (req, res) => {
-    console.log(req)
+    console.log('dashboard')
+    console.log(req.user)
     if (req.user) {
         res.json({
             cookies: req.cookies,

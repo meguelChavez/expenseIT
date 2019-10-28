@@ -3,6 +3,19 @@ const GoogleStrategy = require("passport-google-oauth20")
 const keys = require("./keys")
 const User = require("../models/user")
 
+passport.serializeUser((user, done) => {
+    done(null, user.id)
+})
+
+passport.deserializeUser((id, done) => {
+    User.findById(id).then((user) => {
+        console.log(user)
+        done(null, user)
+    }).catch((err) => {
+        done(new Error(err))
+    })
+})
+
 passport.use(
     new GoogleStrategy({
         callbackURL: "/auth/google/redirect",
@@ -11,9 +24,9 @@ passport.use(
     }, (accessToken, refreshToken, profile, done) => {
         console.log("passport cb")
         // console.log(profile)
-        User.find({ userName: profile.displayName }).then((userData) => {
+        User.findOne({ googleId: profile.id }).then((userData) => {
             console.log(userData)
-            if (userData === undefined || userData.length == 0) {
+            if (!userData) {
                 console.log('creating new user')
                 const user = new User({
                     userName: profile.displayName,
@@ -22,7 +35,10 @@ passport.use(
                 User.create(user).then(data => {
                     console.log("new user")
                     console.log(data)
+                    done(null, data)
                 }).catch(err => console.log(err))
+            } else {
+                done(null, userData)
             }
         }).catch((err) => console.log(err))
         // new User({

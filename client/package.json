@@ -19,13 +19,18 @@
   "license": "ISC",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.25",
+    "@fortawesome/free-brands-svg-icons": "^5.11.2",
     "@fortawesome/free-solid-svg-icons": "^5.11.2",
+    "@fortawesome/react-fontawesome": "^0.1.7",
     "axios": "^0.19.0",
     "bootstrap": "^4.3.1",
     "react": "^16.11.0",
+    "react-datepicker": "^2.9.6",
     "react-dom": "^16.11.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "^3.2.0",
+    "react-select": "^3.0.8",
+    "react-table": "^6.10.3",
     "reactstrap": "^8.1.1"
   }
 }
