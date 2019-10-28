@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const passport = require("passport");
-const ClientURL = "http://localhost:3000";
+const ClientURL = process.env.ClientURL || "http://localhost:3000";
 
 // router.post("/login", (req, res) => {
 
