@@ -24,9 +24,9 @@ const SignIn = props => {
         />
       </FormGroup>{" "}
       <div className="d-flex justify-content-end">
-        <Link to="/auth/google">
-          <Button onClick={props.googleAuth}>Submit</Button>\
-        </Link>
+        {/* <Link to="/auth/google"> */}
+        <Button onClick={props.googleAuth}>Submit</Button>
+        {/* </Link> */}
       </div>
     </Form>
   );
